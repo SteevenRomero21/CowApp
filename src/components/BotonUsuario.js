@@ -7,12 +7,12 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
-import NavigationIcon from '@mui/icons-material/Navigation';
-import Fab from '@mui/material/Fab';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useNavigate } from 'react-router-dom';
 
 export default function BotonUsuario() {
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
   const anchorRef = React.useRef(null);
 
   const handleToggle = () => {
@@ -50,7 +50,7 @@ export default function BotonUsuario() {
     <Stack direction="row" spacing={2}>
       <div>
         <Button 
-          sx={{marginLeft: 'auto', background:'rgba(0,106,5,0.6812850140056023)'}} variant="contained"
+          style={{marginLeft: 'auto', background:'green'}} variant="contained"
           ref={anchorRef}
           id="composition-button"
           aria-controls={open ? 'composition-menu' : undefined}
@@ -85,9 +85,11 @@ export default function BotonUsuario() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={(e) => {
+                      navigate('/content/usuarios')
+                      handleClose(e)
+                    }}>Crear usuario</MenuItem>
+                    <MenuItem onClick={handleClose}>Cerrar sesión</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

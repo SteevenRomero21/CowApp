@@ -2,8 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import EventNoteRoundedIcon from '@mui/icons-material/EventNoteRounded';
 import GrassRoundedIcon from '@mui/icons-material/GrassRounded';
@@ -21,10 +19,18 @@ export default function BotonNav() {
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
+        sx={{
+          "& .Mui-selected * ": {
+            color: "#008000"
+          },
+          "& .MuiBottomNavigationAction-root, svg": {
+            color: "#242424"
+          },
+       }}
       >
-        <BottomNavigationAction label="INICIO" icon={<HomeRoundedIcon/>} onClick={()=>navigate('/')}/>
-        <BottomNavigationAction label="REGISTRO DE LECHE" icon={<EventNoteRoundedIcon />} onClick={()=>navigate('/leche')}/>
-        <BottomNavigationAction label="GANADO" icon={<GrassRoundedIcon />} onClick={()=>navigate('/ganado')}/>
+        <BottomNavigationAction label="Inicio" icon={<HomeRoundedIcon />} onClick={()=>navigate('home')}/>
+        <BottomNavigationAction label="Leche" icon={<EventNoteRoundedIcon />} onClick={()=>navigate('leche')}/>
+        <BottomNavigationAction label="Ganado" icon={<GrassRoundedIcon />} onClick={()=>navigate('ganado')}/>
       </BottomNavigation>
     </Box>
   );

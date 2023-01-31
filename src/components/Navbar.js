@@ -16,11 +16,11 @@ export const Navbar = () => {
                 <Grid sx={{placeItems:'center'}} container>
                     <Grid items xs={2}>
                         <Typography>
-                        <img src={Logo} width="28%"/>
+                        <img src={Logo} width="25%"/>
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}/>
-                    <Grid item xs={7}>
+                    <Grid item xs={2}/>
+                    <Grid item xs={6}>
                         <BotonNav/>
                     </Grid>
                     <Grid item xs={1}/>
